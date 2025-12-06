@@ -1,0 +1,31 @@
+<div class="layout">
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="logo-circle">P</div>
+            <span class="brand-title">Panther Dashboard</span>
+        </div>
+
+        <nav class="menu">
+            <a routerLink="documents" routerLinkActive="active">
+                <span>📄</span> Tipos de Documento
+            </a>
+
+            <a routerLink="people" routerLinkActive="active">
+                <span>👤</span> Personas
+            </a>
+
+            <a routerLink="invoice" routerLinkActive="active">
+                <span>🧾</span> Crear Factura
+            </a>
+
+            <a class="logout" (click)="logout()">
+                <span>🚪</span> Cerrar sesión
+            </a>
+        </nav>
+
+    </aside>
+
+    <main class="content">
+        <router-outlet></router-outlet>
+    </main>
+</div>

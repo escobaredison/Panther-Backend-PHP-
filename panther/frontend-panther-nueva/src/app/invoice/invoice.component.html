@@ -1,0 +1,38 @@
+<div class="invoice-container">
+    <h2>Crear Factura</h2>
+
+
+    <form (ngSubmit)="enviarFactura()" class="form-grid">
+
+
+        <label>Número de Factura</label>
+        <input type="text" [(ngModel)]="invoiceData.NumeroFactura" name="nf" required>
+
+
+        <label>Fecha</label>
+        <input type="date" [(ngModel)]="invoiceData.Fecha" name="fecha" required>
+
+
+        <label>Cliente</label>
+        <input type="text" [(ngModel)]="invoiceData.Cliente.Nombre" name="cliente" required>
+
+
+        <label>Documento Cliente</label>
+        <input type="text" [(ngModel)]="invoiceData.Cliente.Documento" name="doccli" required>
+
+
+        <label>Descripción</label>
+        <input type="text" [(ngModel)]="invoiceData.Items[0].Descripcion" name="desc" required>
+
+
+        <label>Cantidad</label>
+        <input type="number" [(ngModel)]="invoiceData.Items[0].Cantidad" name="cant" required>
+
+
+        <label>Valor Unitario</label>
+        <input type="number" [(ngModel)]="invoiceData.Items[0].ValorUnitario" name="valor" required>
+
+
+        <button type="submit" class="btn">Enviar Factura</button>
+    </form>
+</div>

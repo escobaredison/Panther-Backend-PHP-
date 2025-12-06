@@ -1,0 +1,32 @@
+@import "../document-crud/document-crud.component.scss";
+
+/* GRID PARA PERSONAS */
+.form-grid-large {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+/* FILA COMPLETA PARA EL BOTÓN */
+.button-row {
+    grid-column: 1 / 4;
+    margin-top: 22px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* Ajuste visual para selects e inputs */
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-size: 14px;
+}
+
+.form-group select:hover,
+.form-group input:hover {
+    border-color: #4b4bf7;
+}

@@ -1,0 +1,113 @@
+<div class="page-container">
+
+    <h2 class="title">👤 Gestión de Personas</h2>
+
+    <!-- FORMULARIO -->
+    <div class="card form-card">
+        <h3 class="form-title">
+            {{ person.id ? '✏ Editar Persona' : '➕ Crear Nueva Persona' }}
+        </h3>
+
+        <form class="form-grid-large" (ngSubmit)="savePerson()">
+
+            <!-- FILA 1 -->
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" [(ngModel)]="person.name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Apellido</label>
+                <input type="text" [(ngModel)]="person.lastName" name="lastName" required>
+            </div>
+
+            <div class="form-group">
+                <label>Teléfono</label>
+                <input type="text" [(ngModel)]="person.phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label>Tipo Documento</label>
+                <select [(ngModel)]="person.document_type_id" name="document_type_id" required>
+                    <option *ngFor="let d of documents" [value]="d.id">
+                        {{ d.name_long }}
+                    </option>
+                </select>
+            </div>
+
+            <!-- FILA 2 -->
+            <div class="form-group">
+                <label>País</label>
+                <select [(ngModel)]="person.country_id" name="country_id" (change)="onCountryChange(person.country_id)">
+                    <option *ngFor="let c of countries" [ngValue]="c.id">{{ c.name }}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Departamento</label>
+                <select [(ngModel)]="person.state_id" name="state_id" (change)="onDepartmentChange(person.state_id)">
+                    <option *ngFor="let d of departments" [ngValue]="d.id">{{ d.name }}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Ciudad</label>
+                <select [(ngModel)]="person.city_id" name="city_id">
+                    <option *ngFor="let ci of cities" [ngValue]="ci.id">{{ ci.name }}</option>
+                </select>
+            </div>
+
+            <!-- BOTÓN EN FILA COMPLETA -->
+            <div class="button-row">
+                <button class="btn-primary" type="submit">
+                    {{ person.id ? 'Actualizar Persona' : 'Crear Persona' }}
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- TABLA -->
+    <div class="card">
+        <h3 class="section-title">📋 Lista de Personas</h3>
+
+        <table class="styled-table" *ngIf="persons.length">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre Completo</th>
+                    <th>Teléfono</th>
+                    <th>Documento</th>
+                    <th>Ubicación</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let p of persons">
+                    <td>{{ p.id }}</td>
+                    <td>{{ p.name }} {{ p.lastName }}</td>
+                    <td>{{ p.phone }}</td>
+                    <!-- Mostrar nombre del documento -->
+                    <td>{{ getDocumentName(p.document_type_id) }}</td>
+                    <!-- Mostrar nombres de ciudad, departamento y país -->
+                    <td>
+                        {{ getCityName(p.city_id) }} -
+                        {{ getDepartmentName(p.state_id) }} -
+                        {{ getCountryName(p.country_id) }}
+                    </td>
+
+                    <td class="actions-cell">
+                        <button class="btn-edit" (click)="editPerson(p)">✏ Editar</button>
+                        <button class="btn-delete" (click)="deletePerson(p.id!)">🗑 Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="!persons.length">
+            No hay personas registradas.
+        </div>
+    </div>
+
+</div>

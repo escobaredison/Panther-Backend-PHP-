@@ -1,0 +1,49 @@
+<div class="login-page">
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+
+            <img src="assets/images/logo.png" width="150px" class="user-avatar">
+
+            <h1>Crear Cuenta</h1>
+
+            <form (ngSubmit)="register()" #signupForm="ngForm">
+
+                <div class="form-content">
+
+                    <div class="form-group">
+                        <input type="text" class="form-control input-underline input-lg" placeholder="Usuario"
+                            [(ngModel)]="user.user" name="user" required />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" class="form-control input-underline input-lg" placeholder="Correo"
+                            [(ngModel)]="user.emailUser" name="emailUser" required />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control input-underline input-lg" placeholder="Contraseña"
+                            [(ngModel)]="user.password" name="password" required />
+                    </div>
+
+                </div>
+
+                <button class="btn rounded-btn" type="submit" [disabled]="loading">
+                    {{ loading ? 'Registrando...' : 'Registrarse' }}
+                </button>
+
+                &nbsp;
+
+                <a class="btn rounded-btn" [routerLink]="['/login']">
+                    Volver al Login
+                </a>
+
+                <!-- Contenedor de mensajes centralizado -->
+                <div class="message-container">
+                    <div class="success" *ngIf="success">{{ success }}</div>
+                    <div class="error" *ngIf="error">{{ error }}</div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

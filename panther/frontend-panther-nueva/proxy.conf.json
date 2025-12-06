@@ -1,0 +1,11 @@
+{
+    "/api": {
+        "target": "http://localhost/backend_panther/panther/rest/",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug",
+        "pathRewrite": {
+            "^/api": ""
+        }
+    }
+}

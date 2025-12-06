@@ -1,0 +1,40 @@
+<div class="login-page">
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <img src="assets/images/logo.png" width="150px" class="user-avatar">
+
+            <h1>Panther Security</h1>
+
+            <form (ngSubmit)="login()" #loginForm="ngForm">
+                <div class="form-content">
+
+                    <div class="form-group">
+                        <input type="text" class="form-control input-underline input-lg" placeholder="Usuario"
+                            [(ngModel)]="credentials.user" name="user" required />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control input-underline input-lg" placeholder="Contraseña"
+                            [(ngModel)]="credentials.password" name="password" required />
+                    </div>
+
+                </div>
+
+                <button class="btn rounded-btn" type="submit" [disabled]="loading">
+                    {{ loading ? 'Ingresando...' : 'Ingresar' }}
+                </button>
+                
+                &nbsp;
+
+                <a class="btn rounded-btn" [routerLink]="['/signup']">
+                    Registrarse
+                </a>
+
+                <div class="error" *ngIf="error" style="margin-top: 15px;">
+                    {{ error }}
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,133 @@
+$topnav-background-color: #222;
+$btn-hover-color: #1abc9c;
+$btn-text-color: #fff;
+
+:host {
+    display: block;
+}
+
+.login-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    background: $topnav-background-color;
+    text-align: center;
+    color: $btn-text-color;
+    padding: 3em;
+
+    .col-lg-4,
+    .col-md-4 {
+        padding: 0;
+    }
+
+    .form-content {
+        padding: 40px 0;
+    }
+
+    h1 {
+        font-weight: 300;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 36px;
+
+        small {
+            color: rgba(255, 255, 255, 0.7);
+        }
+    }
+
+    .user-avatar {
+        border-radius: 50%;
+        border: 2px solid #fff;
+    }
+
+    .form-group {
+        padding: 8px 0;
+
+        input {
+            height: 46px;
+            padding: 10px 16px;
+            font-size: 18px;
+            border: none;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+            background: transparent;
+            color: $btn-text-color;
+            border-radius: 0;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-bottom: 2px solid $btn-hover-color;
+            outline: none;
+        }
+
+        input::-webkit-input-placeholder {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        input:-moz-placeholder {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        input::-moz-placeholder {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        input:-ms-input-placeholder {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+    }
+
+    .error {
+        margin-top: 15px;
+        color: #ff6b6b;
+    }
+
+    .success {
+        margin-top: 15px;
+        color: #2ecc71;
+    }
+
+    .rounded-btn {
+        border-radius: 50px;
+        color: rgba(255, 255, 255, 0.9);
+        background: $topnav-background-color;
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        font-size: 18px;
+        line-height: 40px;
+        padding: 0 30px;
+        min-width: 150px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        &:hover,
+        &:focus {
+            transform: scale(1.05);
+            background: $btn-hover-color;
+            color: #000;
+            border-color: $btn-hover-color;
+            outline: none;
+        }
+    }
+}
+
+button {
+    cursor: pointer !important;
+    transition: 0.2s ease-in-out;
+}
+
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
